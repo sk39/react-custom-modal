@@ -1,6 +1,6 @@
 {
   "name": "react-custom-modal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This component supports showing any custom modal dialog.",
   "author": "",
   "license": "MIT",
@@ -61,5 +61,9 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "react",
+    "modal"
   ]
 }
