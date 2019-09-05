@@ -1,0 +1,10 @@
+{
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-tag-spacing": 0
+  }
+}

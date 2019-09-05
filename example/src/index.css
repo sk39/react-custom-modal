@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 20px;
+  background: #666;
+}
+
+
+.btn {
+  background: none;
+  border: 1px solid #55bfba;
+  color: #55bfba;
+  padding: .3rem .8rem;
+  border-radius: 4px;
+  margin: .4rem;
+  font-size: .8rem;
+}

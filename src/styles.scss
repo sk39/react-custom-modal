@@ -1,0 +1,241 @@
+$color_background: #fff;
+$color_text: #111;
+$animation_duration: .15s;
+
+.Modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modal-show ease-out $animation_duration;
+  z-index: 100;
+
+  &.closing {
+    opacity: 0;
+    pointer-events: none;
+    animation: modal-close ease-in $animation_duration;
+  }
+}
+
+.DisabledLayer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color_text, .5);
+  z-index: 1;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba($color_text, .2);
+
+  .title {
+    padding: .6rem .8rem;
+  }
+
+  .close-btn {
+    opacity: .6;
+    font-weight: 700;
+    background: none;
+    border: 0;
+    margin-left: auto;
+    font-size: 1.4rem;
+    outline: none;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+.modal-body {
+  padding: .6rem .8rem;
+  font-size: .8rem;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid rgba($color_text, .2);
+  padding: .6rem .8rem;
+
+  .btn {
+    &:not(:last-child) {
+      margin-right: .4rem;
+    }
+  }
+}
+
+.Modal {
+  &.full {
+    .ModalDialog {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      &.slideUp {
+        animation: full-modal-slide-up ease-out $animation_duration;
+
+        &.closing {
+          animation: full-modal-close-slide-up ease-in $animation_duration;
+        }
+      }
+
+      &.slideLeft {
+        animation: full-modal-slide-left ease-out $animation_duration;
+
+        &.closing {
+          animation: full-modal-close-slide-left ease-in $animation_duration;
+        }
+      }
+    }
+
+    .DisabledLayer {
+      background: rgba(0, 0, 0, 0);
+    }
+  }
+}
+
+.ModalWrapper {
+  z-index: 2;
+}
+
+.ModalDialog {
+  background: $color_background;
+  color: $color_text;
+
+
+  &.slideUp {
+    animation: modal-slide-up ease-out $animation_duration;
+
+    &.closing {
+      animation: modal-close-slide-up ease-in $animation_duration;
+    }
+  }
+
+  &.slideLeft {
+    animation: modal-slide-left ease-out $animation_duration;
+
+    &.closing {
+      animation: modal-close-slide-left ease-in $animation_duration;
+    }
+  }
+}
+
+
+@keyframes modal-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes modal-slide-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-close-slide-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes modal-slide-left {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-close-slide-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes full-modal-slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes full-modal-close-slide-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes full-modal-slide-left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes full-modal-close-slide-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
