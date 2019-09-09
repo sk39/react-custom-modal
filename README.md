@@ -78,4 +78,4 @@ class CustomDialog extends Component {
 
 ## License
 
-MIT © [](https://github.com/)
+MIT © [sk39](https://github.com/sk39)
