@@ -13,11 +13,9 @@ export default class App extends Component {
   }
 
   showDialog() {
-    setTimeout(()=>{
-      this.dialog.current.show({
-        component: <CustomDialog/>
-      })
-    },1000);
+    this.dialog.current.show({
+      component: <CustomDialog/>
+    })
   }
 
   showDialogUp() {
