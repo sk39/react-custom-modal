@@ -9,7 +9,7 @@ export default class Modal extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {show: false, closing: false, component: null}
+    this.state = {show: false, closing: false}
     this.close = this.close.bind(this)
     this.closeImmediate = this.closeImmediate.bind(this)
   }
@@ -25,12 +25,12 @@ export default class Modal extends Component {
       ? options.render(props)
       : React.cloneElement(options.component, props)
 
+    this.options = options
+    this.component = component
     this.setState({
-      component,
       show: true,
       closing: false
     })
-    this.options = options
   }
 
   close() {
@@ -41,9 +41,9 @@ export default class Modal extends Component {
 
     this.closeTimer = setTimeout(() => {
       this.setState({
-        closing: false,
-        component: null
+        closing: false
       })
+      this.component = null
     }, this.closeDelayTime)
   }
 
@@ -51,13 +51,13 @@ export default class Modal extends Component {
     clearTimeout(this.closeTimer)
     this.setState({
       show: false,
-      closing: false,
-      component: null
+      closing: false
     })
+    this.component = null
   }
 
   render() {
-    const {show, closing, component} = this.state
+    const {show, closing} = this.state
     if (!show && !closing) {
       return null
     }
@@ -83,7 +83,7 @@ export default class Modal extends Component {
           <DisabledLayer show/>
           <div className='ModalWrapper'>
             <div className={_dialogClassList.join(' ')}>
-              {component}
+              {this.component}
             </div>
           </div>
         </div>
